@@ -1,14 +1,13 @@
 :root {
-	--ppfCropColour: #dc143c;
-	--ppfSelectorColour: #ff7f50;
-	--ppfMutedColour: #708090;
-	--ppfMutedColourTrans: #708090cc;
-	--ppfBorderColour: #696969;
-	--ppfTemplateColour: #b0c4de;
-	--ppfCsize: 200px;
-	--ppfDsize: 300px;
-	--ppfEsize: 800px;
-	--ppfPsize: 20px;
+	--ppfCropColour: #dc143c; /* colour of the crop window */
+	--ppfSelectorColour: #ff7f50; /* colour used to highlight selected template */
+	--ppfMutedColourTrans: #708090cc;  /* colour of excluded area, outside of selected area */
+	--ppfBorderColour: #696969; /* default border colour of template images */
+	--ppfTemplateColour: #b0c4de; /* default background colour of template images */
+	--ppfCsize: 200px; /* size of displayed template images */
+	--ppfDsize: 300px; /* size of displayed image with template overlay */
+	--ppfEsize: 800px; /* nominal size of output image */
+	--ppfPsize: 20px; /* padding size around placeholder image */
 }
 
 #ppf_SectionBlocks_templates {
@@ -30,9 +29,10 @@
 
 #ppf_originalPhotoDisplay_block {
 	border: 1px solid #cccccc;
+	box-sizing: content-box;
 	display: inline-block;
 	height: var(--ppfCsize);
-	margin: 0;
+	margin: 0.75rem 2.5rem;
 	padding: 0;
 	vertical-align: middle;
 	width: var(--ppfCsize);
@@ -57,13 +57,21 @@
 	background-color: var(--ppfTemplateColour);
 	border-radius: 1rem;
 	display: inline-block;
-	margin-left: 4rem;
 	min-height: var(--ppfCsize);
-	min-width: var(--ppfCsize);
+	min-width: calc(1.5 * var(--ppfCsize));
 	padding: 0.5rem;
 	vertical-align: middle;
 }
+#ppf_originalPhotoCropForm p {
+	margin: 0;
+}
+#ppf_originalPhotoCropForm > p > label {
+	display: inline;
+	margin: 0;
+}
 #ppf_originalPhotoCropForm > p > input {
+	display: inline;
+	padding: 0;
 	width: 100%;
 }
 #ppf_templateList > h3 {
@@ -84,6 +92,7 @@
 #ppf_templateList > ul > li {
 	background-color: var(--ppfTemplateColour);
 	border: 4px solid var(--ppfBorderColour);
+	box-sizing: content-box;
 	cursor: pointer;
 	display: inline-block;
 	height: var(--ppfCsize);
@@ -102,6 +111,7 @@
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-size: calc(var(--ppfCsize) - var(--ppfPsize)) calc(var(--ppfCsize) - var(--ppfPsize));
+	box-sizing: content-box;
 	height: var(--ppfCsize);
 	margin: 0;
 	padding: 0;

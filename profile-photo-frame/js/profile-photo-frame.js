@@ -1,24 +1,42 @@
 const ppfTemplates = {
-	'#BelieveUs': [
-		'BelieveUs-1',
-		'BelieveUs-2',
-		'BelieveUs-3',
-		'BelieveUs-4',
-		'BelieveUs-5',
-		'BelieveUs-6',
-		'BelieveUs-7',
-		'BelieveUs-8',
-		'BelieveUs-9'
+	'#PurpleOut': [
+		'PurpleOut-1.png',
+		'PurpleOut-2.png',
+		'PurpleOut-3.png',
+		'PurpleOut-4.png',
+		'PurpleOut-5.png',
+		'PurpleOut-6.png'
 	],
 	'#CanWeTalkAboutIt': [
-		'CanWeTalkAboutIt-1',
-		'CanWeTalkAboutIt-2',
-		'CanWeTalkAboutIt-3',
-		//'CanWeTalkAboutIt-4', //sq
-		//'CanWeTalkAboutIt-5', //sq
-		'CanWeTalkAboutIt-6',
-		//'CanWeTalkAboutIt-7', //sq
-		'IStandWithYou'
+		'CanWeTalkAboutIt-1.svg',
+		//'CanWeTalkAboutIt-2.svg',
+		'CanWeTalkAboutIt-3.svg',
+		//'CanWeTalkAboutIt-4.svg', //sq
+		//'CanWeTalkAboutIt-5.svg', //sq
+		//'CanWeTalkAboutIt-6.svg',
+		//'CanWeTalkAboutIt-7.svg', //sq
+		'IStandWithYou.svg'
+	],
+	'#BelieveUs': [
+		//'BelieveUs-1.svg',
+		//'BelieveUs-2.svg',
+		'BelieveUs-3.svg',
+		'BelieveUs-4.svg',
+		'BelieveUs-5.svg',
+		//'BelieveUs-6.svg',
+		'BelieveUs-7.svg',
+		'BelieveUs-8.svg',
+		//'BelieveUs-9.svg',
+		'BelieveUs-10.svg',
+		'BelieveUs-11.svg',
+		'BelieveUs-12.svg',
+		//'BelieveUs-13.svg',
+		//'BelieveUs-14.svg',
+		//'BelieveUs-15.svg',
+		//'BelieveUs-16.svg',
+		'BelieveUs-17.svg',
+		'BelieveUs-18.svg'
+		//'BelieveUs-19.png'
 	]
 };
 const ppfOriginalImage = new Image();
@@ -27,7 +45,6 @@ const ppfDsize = 300;
 const ppfEsize = 800;
 const ppfCropColour = '#dc143c';
 const ppfSelectorColour = '#ff7f50';
-const ppfMutedColour = '#708090';
 const ppfMutedColourTrans = '#708090cc';
 const ppfBorderColour = '#696969';
 
@@ -207,7 +224,7 @@ function ppf_prepareTemplateSelect() {
 				ppf_doOverlay();
 			};
 			const imageItem = document.createElement('img');
-			imageItem.src = ppfProfilePhotoFrameScript.pluginDirUrl + '/templates/' + template + '.svg';
+			imageItem.src = ppfProfilePhotoFrameScript.pluginDirUrl + '/templates/' + template;
 			imageItem.alt = template;
 			listItem.appendChild(imageItem);
 			templateList.appendChild(listItem);
@@ -267,7 +284,7 @@ function ppf_doOverlay() {
 		}
 		context.drawImage(ppfOriginalImage, offsetX, offsetY, size, size, 0, 0, cSize, cSize);
 		const overlayImage = new Image();
-		overlayImage.src = ppfProfilePhotoFrameScript.pluginDirUrl + '/templates/' + goAhead + '.svg';
+		overlayImage.src = ppfProfilePhotoFrameScript.pluginDirUrl + '/templates/' + goAhead;
 		overlayImage.onload = () => {
 			context.drawImage(overlayImage, 0, 0, cSize, cSize);
 			downloadButton.style.display = 'inline';
@@ -314,7 +331,7 @@ function ppf_prepareDownloadButton() {
 			newPhotoDownload.width = size;
 			newPhotoDownload.height = size;
 			const overlayImage = new Image();
-			overlayImage.src = ppfProfilePhotoFrameScript.pluginDirUrl + '/templates/' + goAhead + '.svg';
+			overlayImage.src = ppfProfilePhotoFrameScript.pluginDirUrl + '/templates/' + goAhead;
 			overlayImage.onload = () => {
 				context.drawImage(ppfOriginalImage, offsetX, offsetY, size, size, 0, 0, size, size);
 				context.drawImage(overlayImage, 0, 0, size, size);
