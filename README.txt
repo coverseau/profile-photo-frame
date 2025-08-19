@@ -2,7 +2,7 @@
 Tags: photos, images
 Requires at least: 6.0.0
 Tested up to: 6.1.1
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,6 +13,8 @@ Enables you to display a widget on your WordPress website so your users can add 
 Enables you to display a widget on your WordPress website so your users can add a profile photo frame to their profile photo.
 
 == Changelog ==
+= 1.1.2 =
+* Changed update method to GitHub repository.
 = 1.1.1 =
 * Added I Am Not Misinformation templates, and removed some of the older ones.
 = 1.1.0 =

@@ -4,13 +4,13 @@
   *
   * @package           profile-photo-frame
   * @author            Rado Faletič
-  * @copyright         2022, 2023 Rado Faletič
+  * @copyright         2022, 2023, 2025 CoVerse
   * @license           GPL-2.0-or-later
   *
   * @wordpress-plugin
   * Plugin Name:       Profile photo frame
   * Description:       Enables you to display a widget on your WordPress website so users can add a profile photo frame to their profile photo.
-  * Version:           1.1.1
+  * Version:           1.1.2
   * Requires at least: 6.0
   * Requires PHP:      7.0
   * Author:            Rado Faletič
@@ -18,7 +18,7 @@
   * Text Domain:       profile-photo-frame
   * License:           GPL v2 or later
   * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
-  * Update URI:        https://RadoFaletic.com/plugins/info.json
+  * Update URI:        https://raw.githubusercontent.com/coverseau/profile-photo-frame/refs/heads/main/update-info.json
   */
 
 /*
@@ -29,6 +29,48 @@
   You should have received a copy of the GNU General Public License along with {Plugin Name}. If not, see {URI to Plugin License}.
   */
 
+/**
+ * Plugin updater handler function.
+ * Pings the Github repo that hosts the plugin to check for updates.
+ */
+if (!function_exists('coverse_PPF_check_for_plugin_update')) {
+  function coverse_PPF_check_for_plugin_update($transient) {
+    // If no update transient or transient is empty, return.
+    if (empty($transient->checked)) {
+      return $transient;
+    }
+    
+    // Plugin slug, path to the main plugin file, and the URL of the update server
+    $plugin_slug = 'profile-photo-frame/profile-photo-frame.php';
+    $update_url = 'https://raw.githubusercontent.com/coverseau/profile-photo-frame/refs/heads/main/update-info.json';
+    
+    // Fetch update information from your server
+    $response = wp_remote_get($update_url);
+    if (is_wp_error($response)) {
+      return $transient;
+    }
+    
+    // Parse the JSON response (update_info.json must return the latest version details)
+    $update_info = json_decode(wp_remote_retrieve_body($response));
+    
+    // If a new version is available, modify the transient to reflect the update
+    if (version_compare($transient->checked[$plugin_slug], $update_info->new_version, '<')) {
+      $plugin_data = array(
+          'slug'        => 'profile-photo-frame',
+          'plugin'      => $plugin_slug,
+          'new_version' => $update_info->new_version,
+          'url'         => $update_info->url,
+          'package'     => $update_info->package, // URL of the plugin zip file
+        );
+      $transient->response[ $plugin_slug ] = (object) $plugin_data;
+    }
+    
+    return $transient;
+  }
+  add_filter( 'pre_set_site_transient_update_plugins', 'coverse_PPF_check_for_plugin_update' );
+}
+
+/*
 if (!function_exists('RadoFaletic_com_check_for_updates')) {
   function RadoFaletic_com_check_for_updates($update, $plugin_data, $plugin_file) {
     static $response = false;
@@ -50,6 +92,7 @@ if (!function_exists('RadoFaletic_com_check_for_updates')) {
   }
   add_filter('update_plugins_RadoFaletic.com', 'RadoFaletic_com_check_for_updates', 10, 3);
 }
+*/
 
 function ppf_profile_photo_frame() {
   
