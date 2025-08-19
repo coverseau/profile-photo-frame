@@ -1,4 +1,8 @@
 const ppfTemplates = {
+	'#IAmNotMisinformation': [
+		'IAmNotMisinformation.svg',
+		'IAmNotMisinformationVI.svg'
+	],
 	'#PurpleOut': [
 		'PurpleOut-1.png',
 		'PurpleOut-2.png',
@@ -16,28 +20,28 @@ const ppfTemplates = {
 		//'CanWeTalkAboutIt-6.svg',
 		//'CanWeTalkAboutIt-7.svg', //sq
 		'IStandWithYou.svg'
-	],
+	]/*,
 	'#BelieveUs': [
-		//'BelieveUs-1.svg',
-		//'BelieveUs-2.svg',
+		'BelieveUs-1.svg',
+		'BelieveUs-2.svg',
 		'BelieveUs-3.svg',
 		'BelieveUs-4.svg',
 		'BelieveUs-5.svg',
-		//'BelieveUs-6.svg',
+		'BelieveUs-6.svg',
 		'BelieveUs-7.svg',
 		'BelieveUs-8.svg',
-		//'BelieveUs-9.svg',
+		'BelieveUs-9.svg',
 		'BelieveUs-10.svg',
 		'BelieveUs-11.svg',
 		'BelieveUs-12.svg',
-		//'BelieveUs-13.svg',
-		//'BelieveUs-14.svg',
-		//'BelieveUs-15.svg',
-		//'BelieveUs-16.svg',
+		'BelieveUs-13.svg',
+		'BelieveUs-14.svg',
+		'BelieveUs-15.svg',
+		'BelieveUs-16.svg',
 		'BelieveUs-17.svg',
 		'BelieveUs-18.svg'
-		//'BelieveUs-19.png'
-	]
+		'BelieveUs-19.png'
+	]*/
 };
 const ppfOriginalImage = new Image();
 const ppfCsize = 200;
