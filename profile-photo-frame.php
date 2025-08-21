@@ -10,7 +10,7 @@
   * @wordpress-plugin
   * Plugin Name:       Profile photo frame
   * Description:       Enables you to display a widget on your WordPress website so users can add a profile photo frame to their profile photo.
-  * Version:           1.1.3
+  * Version:           1.1.4
   * Requires at least: 6.0
   * Requires PHP:      7.0
   * Author:            Rado Faletič
@@ -67,11 +67,10 @@ if (!function_exists('coverse_PPF_check_for_plugin_update')) {
     
     return $transient;
   }
-  add_filter('pre_set_coverse_PPF_transient_update_plugins', 'coverse_PPF_check_for_plugin_update');
+  add_filter('pre_set_site_transient_update_plugins', 'coverse_PPF_check_for_plugin_update');
 }
 
 function ppf_profile_photo_frame() {
-  
   wp_enqueue_style('ppf-profile-photo-frame-style', plugins_url('/css/profile-photo-frame.css', __FILE__), null, false);
   wp_enqueue_script('ppf-profile-photo-frame-script', plugins_url('/js/profile-photo-frame.js', __FILE__), null, false);
   wp_localize_script('ppf-profile-photo-frame-script', 'ppfProfilePhotoFrameScript', array('pluginDirUrl' => plugin_dir_url(__FILE__)));
@@ -85,7 +84,6 @@ function ppf_profile_photo_frame() {
   if ($wp_filesystem->exists($htmlTemplateFile)) {
       $content = $wp_filesystem->get_contents($htmlTemplateFile);
   }
-  
   return $content;
 }
 add_shortcode('ppf-profile-photo-frame', 'ppf_profile_photo_frame');
