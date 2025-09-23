@@ -50,5 +50,6 @@ Thumbs.db
 
 # other files
 .nova/
+*.xcworkspace
 profile-photo-frame.zip
 
