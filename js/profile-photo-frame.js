@@ -1,7 +1,7 @@
 const ppfTemplates = {
 	'#VaccineInjuryAwareness': [
 		'PurpleOut-3.png',
-		'br',
+		'br', // force a manual linebreak between template images
 		'PurpleOut-1.png',
 		'PurpleOut-6.png'
 	],
@@ -14,10 +14,10 @@ const ppfTemplates = {
 		'CanWeTalkAboutIt-1.svg',
 		//'CanWeTalkAboutIt-2.svg',
 		//'CanWeTalkAboutIt-3.svg',
-		//'CanWeTalkAboutIt-4.svg', //sq
-		//'CanWeTalkAboutIt-5.svg', //sq
+		//'CanWeTalkAboutIt-4.svg', // sqaure template
+		//'CanWeTalkAboutIt-5.svg', // sqaure template
 		//'CanWeTalkAboutIt-6.svg',
-		//'CanWeTalkAboutIt-7.svg', //sq
+		//'CanWeTalkAboutIt-7.svg', // sqaure template
 		'IStandWithYou.svg'
 		//'BelieveUs-1.svg',
 		//'BelieveUs-2.svg',
@@ -190,7 +190,11 @@ function ppf_cropAndDraw(photoFileName = '') {
 function ppf_prepareTemplateSelect() {
 	let nTemplates = 0;
 	Object.keys(ppfTemplates).forEach(templateCategory => {
-		nTemplates += ppfTemplates[templateCategory].length
+		ppfTemplates[templateCategory].forEach(template => {
+			if (template != 'br') {
+				nTemplates++;
+			}
+		});
 	});
 	const heading = document.getElementById('ppf_templateList_heading');
 	heading.innerText = heading.innerText + ' (' + nTemplates + ' to choose from)';
