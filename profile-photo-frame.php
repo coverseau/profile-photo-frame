@@ -10,7 +10,7 @@
   * @wordpress-plugin
   * Plugin Name:       Profile photo frame
   * Description:       Enables you to display a widget on your WordPress website so users can add a profile photo frame to their profile photo.
-  * Version:           1.2..1
+  * Version:           1.2.2
   * Requires at least: 6.0
   * Requires PHP:      7.0
   * Author:            Rado Faletič

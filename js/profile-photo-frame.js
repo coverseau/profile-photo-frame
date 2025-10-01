@@ -3,12 +3,12 @@ const ppfTemplates = {
 		'PurpleOut-3.png',
 		'br', // force a manual linebreak between template images
 		'PurpleOut-1.png',
+		'PurpleOut-5.png',
 		'PurpleOut-6.png'
 	],
 	'other frames': [
 		'PurpleOut-2.png',
 		'PurpleOut-4.png',
-		'PurpleOut-5.png',
 		'IAmNotMisinformation.svg',
 		'IAmNotMisinformationVI.svg',
 		'CanWeTalkAboutIt-1.svg',
