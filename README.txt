@@ -1,8 +1,9 @@
 === Profile photo frame ===
+Donate link: https://coverse.org.au/donate/
 Tags: photos, images
 Requires at least: 6.0.0
 Tested up to: 6.1.1
-Stable tag: 1.2.2
+Stable tag: 1.2.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,6 +14,8 @@ Enables you to display a widget on your WordPress website so your users can add 
 Enables you to display a widget on your WordPress website so your users can add a profile photo frame to their profile photo.
 
 == Changelog ==
+= 1.2.3 =
+* Improved documentation.
 = 1.2.2 =
 * Moved one of the frames to the highlights.
 = 1.2.1 =
